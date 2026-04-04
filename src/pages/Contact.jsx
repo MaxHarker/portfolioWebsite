@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { ref, push } from "firebase/database"
-import { database } from "../data/firebase" // import your firebase config
+import { database } from "../data/firebase"
 
 function Contact() {
   const [form, setForm] = useState({ name: "", email: "", message: "" })
@@ -14,10 +14,8 @@ function Contact() {
   const handleSubmit = async (event) => {
     event.preventDefault()
 
-    // reference to the "contacts" list
     const messagesRef = ref(database, "contacts")
 
-    // push a new message object
     await push(messagesRef, {
       name: form.name,
       email: form.email,

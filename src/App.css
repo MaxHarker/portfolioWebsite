@@ -163,7 +163,6 @@
   box-shadow: 0 12px 26px var(--accent-strong);
 }
 
-/* Click feel */
 .hero-btn:active {
   transform: translateY(0);
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
