@@ -17,7 +17,7 @@ export const portfolioItems = [
     summary: 'A Mancala solver using recursive lookahead to evaluate all possible move sequences and choose optimal plays.',
     details:
       'This project implements a Mancala game solver that uses recursive search strategies to analyze move outcomes and identify the best possible play. It demonstrates advanced logic handling and strategic decision making within game tree exploration.',
-    image: '/images/neuralNetwork.jpg',
+    image: '/images/mancala.jpg',
     tags: ['JavaScript', 'Algorithm', 'Game Logic', 'Recursive Search'],
     link: 'https://github.com/MaxHarker/Mancala',
   },
