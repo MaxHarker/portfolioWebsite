@@ -1,9 +1,34 @@
-import { useState } from 'react'
+import { useState, useRef, useLayoutEffect } from 'react'
 import { portfolioItems } from '../data/projects'
 
 function Portfolio() {
   const [activeId, setActiveId] = useState(portfolioItems[0]?.id)
   const activeProject = portfolioItems.find((project) => project.id === activeId)
+  const detailRef = useRef(null)
+  const [navbarHeight, setNavbarHeight] = useState(0)
+
+  useLayoutEffect(() => {
+    const navbar = document.querySelector('.navbar')
+    if (navbar) {
+      setNavbarHeight(navbar.offsetHeight + 15)
+    }
+  }, [])  
+
+  const handleSelectProject = (id) => {
+    setActiveId(id)
+
+    if (window.innerWidth <= 680 && detailRef.current) {
+      setTimeout(() => {
+        const elementTop =
+          detailRef.current.getBoundingClientRect().top + window.scrollY
+
+        window.scrollTo({
+          top: elementTop - navbarHeight,
+          behavior: 'smooth',
+        })
+      }, 0)
+    }
+  }
 
   return (
     <section className="page-section portfolio-page">
@@ -25,7 +50,7 @@ function Portfolio() {
               className={
                 project.id === activeId ? 'project-card active' : 'project-card'
               }
-              onClick={() => setActiveId(project.id)}
+              onClick={() => handleSelectProject(project.id)}
             >
               <div>
                 <span className="project-category">{project.category}</span>
@@ -37,7 +62,7 @@ function Portfolio() {
           ))}
         </div>
 
-        <div className="project-detail-panel">
+        <div className="project-detail-panel" ref={detailRef}>
           {activeProject ? (
             <article>
               <div className="project-detail-hero">
