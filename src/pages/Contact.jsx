@@ -32,6 +32,23 @@ function Contact() {
       <div className="section-header">
         <span className="eyebrow">Contact</span>
         <h2>Let's create something together</h2>
+        <div className="contact-info">
+          <a href="https://github.com/MaxHarker" target="_blank" rel="noopener noreferrer">
+            <img src="/images/github.png" alt="GitHub profile link" className="social-icon" />
+          </a>
+          <a href="https://www.linkedin.com/in/max-harker-019b5b316/" target="_blank" rel="noopener noreferrer">
+            <img src="/images/linkedin.png" alt="LinkedIn profile link" className="social-icon" />
+          </a>
+          <a href="https://www.instagram.com/maxharker63/" target="_blank" rel="noopener noreferrer">
+            <img src="/images/instagram.png" alt="Instagram profile link" className="social-icon" />
+          </a>
+          <a href="mailto:maxharker@gmail.com">
+            <img src="/images/email.png" alt="Email Max Harker" className="social-icon" />
+          </a>
+          <a href="tel:+13854415107">
+            <img src="/images/phone.png" alt="Call Max Harker" className="social-icon" />
+          </a>
+        </div>
         <p>
           Send a quick message if you'd like to connect about a project,
           opportunity, or collaboration.
@@ -50,7 +67,6 @@ function Contact() {
             required
           />
         </label>
-
         <label>
           <span>Email</span>
           <input
@@ -62,7 +78,6 @@ function Contact() {
             required
           />
         </label>
-
         <label>
           <span>Message</span>
           <textarea
@@ -74,11 +89,9 @@ function Contact() {
             required
           />
         </label>
-
         <button type="submit" className="button-primary">
           Send message
         </button>
-
         {submitted && <p className="form-success">Thanks! Your message has been logged.</p>}
       </form>
     </section>
